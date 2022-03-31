@@ -1,0 +1,38 @@
+---
+# tasks file for docker
+- name: install apt dependencies
+  apt:
+    pkg:
+    - apt-transport-https
+    - ca-certificates
+    - curl
+    - gnupg
+    - lsb-release
+    - python3
+    - python3-pip
+    update_cache: true
+- name: add gpg key
+  apt_key:
+    url: https://download.docker.com/linux/ubuntu/gpg
+    state: present
+- name: add apt repo
+  apt_repository:
+    repo: deb https://download.docker.com/linux/ubuntu focal stable
+    state: present
+- name: install docker
+  apt:
+    pkg:
+    - docker-ce
+    - docker-ce-cli
+    - containerd.io
+- name: add user to docker group
+  user:
+    name: "{{ docker_user }}"
+    groups: docker
+    append: yes
+- name: install docker pip package
+  pip:
+    name:
+      - docker
+      - jsondiff
+    executable: pip3

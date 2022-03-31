@@ -1,0 +1,57 @@
+- hosts: devvm
+  become: true
+  roles:
+    - python
+    - docker
+    - docker-compose
+  tasks:
+  - name: create git dir
+    file:
+      state: directory
+      path: /home/natal/practical-project
+  - name: clone repo
+    git:
+      repo: https://github.com/NatalieHumphriesGitHub/QA-Practical-Project
+      dest: /home/natal/practical-project
+      clone: yes
+  vars:
+    docker_user: nhumphries
+
+- hosts: ciservers
+  become: true
+  roles:
+    - python
+    - docker
+    - docker-compose
+    - jenkins
+  vars:
+      docker_user: jenkins
+
+- hosts: swarmmanagers
+  become: true
+  roles:
+    - docker 
+    - swarm-manager
+  tasks:
+  - name: add ansible user to docker group
+    user:
+      name: nhumphries
+      groups: docker
+      append: yes
+  vars:
+    docker_user: jenkins
+
+- hosts: swarmworkers
+  become: true
+  roles: 
+  - docker
+  - swarm-worker
+  vars:
+    docker_user: nhumphries
+
+- hosts: loadbalancer
+  become: true
+  roles:
+  - docker
+  vars:
+    docker_user: nhumphries

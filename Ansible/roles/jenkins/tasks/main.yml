@@ -1,0 +1,11 @@
+---
+# tasks file for jenkins
+- name: generate ssh key pair
+  user:
+    name: jenkins
+    generate_ssh_key: yes
+- name: get pubkey
+  command:
+    cmd: cat /home/jenkins/.ssh/id_rsa.pub
+  register: jenks_pubkey
+  

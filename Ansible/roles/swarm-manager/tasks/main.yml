@@ -1,0 +1,43 @@
+---
+# tasks file for swarm-manager
+- name: ensure jenkins exists and is added to docker group
+  user:
+    name: jenkins
+    state: present
+    create_home: true
+    groups: docker
+    append: yes
+- name: ensure ssh dir exists
+  file:
+    path: /home/jenkins/.ssh
+    state: directory
+    owner: jenkins
+    mode: '700'
+- name: set up ssh key
+  template:
+    src: pubkey
+    dest: /home/jenkins/.ssh/authorized_keys
+    owner: jenkins
+    mode: '640'
+- name: add environment file
+  template:
+    src: env
+    dest: /home/jenkins/.ssh/environment
+    owner: jenkins
+    mode: '600'
+- name: update sshd config
+  lineinfile:
+    dest: /etc/ssh/sshd_config
+    state: present
+    regexp: '^PermitUser'
+    line: 'PermitUserEnvironment yes'
+- name: restart sshd
+  service:
+    name: sshd
+    state: restarted
+- name: initialize swarm
+  community.docker.docker_swarm:
+    state: present
+- name: get info
+  community.docker.docker_swarm_info:
+  register: swarm_info

@@ -1,0 +1,15 @@
+---
+# tasks file for nginx
+- name: install NGINX
+  apt:
+    name: nginx
+    state: present
+    update_cache: true
+  register: nginx_info
+- name: starting NGINX service
+  service:
+    name: nginx
+    state: started
+- name: print nginx info
+  debug: 
+    msg: "{{ nginx_info }}"

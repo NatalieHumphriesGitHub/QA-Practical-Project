@@ -1,0 +1,33 @@
+all:
+  children:
+    swarmmanagers:
+      hosts:
+        swarm-manager:
+          ansible_user: nhumphries
+          ansible_ssh_private_key_file: /home/natalie_laing/.ssh/id_rsa
+          ansible_ssh_common_args: '-o StrictHostKeyChecking=no'
+    swarmworkers:
+      hosts:
+        swarm-worker:
+          ansible_user: nhumphries
+          ansible_ssh_private_key_file: /home/natalie_laing/.ssh/id_rsa
+          ansible_ssh_common_args: '-o StrictHostKeyChecking=no'
+    ciservers:
+      hosts:
+        jenkins:
+          ansible_user: nhumphries
+          ansible_ssh_private_key_file: /home/natalie_laing/.ssh/id_rsa
+          ansible_ssh_common_args: '-o StrictHostKeyChecking=no'
+    devvm:
+      hosts:
+        dev:
+          ansible_user: nhumphries
+          ansible_ssh_private_key_file: /home/natalie_laing/.ssh/id_rsa
+          ansible_ssh_common_args: '-o StrictHostKeyChecking=no'
+    loadbalancer:
+      hosts:
+        nginx:
+          ansible_user: nhumphries
+          ansible_ssh_private_key_file: /home/natalie_laing/.ssh/id_rsa
+          ansible_ssh_common_args: '-o StrictHostKeyChecking=no'
+ 
