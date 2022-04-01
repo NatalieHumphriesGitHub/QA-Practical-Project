@@ -11,6 +11,6 @@ def get_teams():
     while away_team != home_team:
         return jsonify(home_team=home_team, away_team=away_team)
     else:
-        return "Teams can't play themselves!"
+        return f"{home_team} can't play themselves- try again!"
         
 
