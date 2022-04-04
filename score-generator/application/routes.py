@@ -11,6 +11,6 @@ def team_scores():
     away_team =team_json["away_team"]
     return jsonify(home_team_score=round(team_factors[home_team]*randint(0,3)), away_team_score=round(team_factors[away_team]*randint(0,2)))
 
-#need to patch with the testing for the random function for the unit tests
+
 
 
