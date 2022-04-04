@@ -11,5 +11,3 @@ def get_home_team():
        
         
 
-# while away_team == home_team:                       #move to front-end
-#         away_team = choice(teams)
