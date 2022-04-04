@@ -1,8 +1,11 @@
 Flask==1.1.1
 markupsafe==2.0.1
 itsdangerous==2.0.1
-requests
-flask_sqlalchemy
-pymysql
 Jinja2==3.0.3
+flask_sqlalchemy
+flask_testing
+pytest
+pytest-cov
+requests
+requests_mock
 werkzeug==2.0.3
