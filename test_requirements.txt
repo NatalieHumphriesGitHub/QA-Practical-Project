@@ -8,3 +8,4 @@ pytest
 pytest-cov
 requests
 requests_mock
+werkzeug==2.0.3

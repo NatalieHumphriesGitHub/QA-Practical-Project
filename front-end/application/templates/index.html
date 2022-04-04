@@ -1,0 +1,21 @@
+<html>
+    <head>
+        <title>Random Football Score Generator</title>
+</head>
+<body style="background-color:cadetblue; font-family: 'Gill Sans';">
+
+    <h1>Who Will Win Today?</h1>
+    
+    <p>Home Team: {{ home_team }} - {{ home_team_score }} v {{ away_team_score }} - {{ away_team }}</p>
+    <br>
+    <br>
+    <p> {{ result }}</p>
+    <br>
+    <br>
+    {% for game in games %}
+    {{ game.__str__()  }}
+    <br>
+    {% end for %}
+
+</body>
+</html>
