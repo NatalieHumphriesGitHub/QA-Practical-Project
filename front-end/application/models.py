@@ -1,4 +1,5 @@
 from application import db
+from datetime import datetime
 
 class Games(db.Model):
     pk = db.Column(db.Integer, primary_key = True)
