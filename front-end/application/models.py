@@ -6,5 +6,6 @@ class Games(db.Model):
     home_team_score = db.Column(db.Integer)
     away_team = db.Column(db.String(20))
     away_team_score = db.Column(db.Integer)
+    date_run = db.datetime
     def__str__(self):
-        return f"{home_team} - {home_team_score} : {away_team_score} - {away_team}"
+        return f"{home_team} - {home_team_score} : {away_team_score} - {away_team} ({date_run})"

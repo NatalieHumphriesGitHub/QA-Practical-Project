@@ -16,4 +16,4 @@ def index():
     db.session.add(Games(home_team=home_team["home_team"], away_team=away_team["away_team"], home_team_score=home_team_score, away_team_score=away_team_score, date_run=datetime.now()))
     db.session.commit()
     games = Games.query.all()
-    return render_template('index.html', games = games)
+    return render_template('index.html', games = games, home_team = home_team, away_team=away_team, home_team_score=home_team_score, away_team_score=away_team_score)
