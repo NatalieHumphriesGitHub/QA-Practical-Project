@@ -12,14 +12,24 @@ The project brief was to create a service-orientated architecture for an applica
 * Continuous Integration
 * Cloud Fundamentals
 
-The key requirements were as follows:
+The key requirements and the tools to be used were as follows:
 
-An Asana board (or equivalent Kanban board tech) with full expansion on tasks needed to complete the project.
-This could also provide a record of any issues or risks that you faced creating your project.
-An Application fully integrated using the Feature-Branch model into a Version Control System which will subsequently be built through a CI server and deployed to a cloud-based virtual machine.
-If a change is made to a code base, then Webhooks should be used so that Jenkins recreates and redeploys the changed application
-The project must follow the Service-oriented architecture that has been asked for.
-The project must be deployed using containerisation and an orchestration tool.
-As part of the project, you need to create an Ansible Playbook that will provision the environment that your application needs to run.
-The project must make use of a reverse proxy to make your application accessible to the user.
+INSERT TABLE
 
+The application had to be successfully deployed via the CI Pipeline and a live rolling update had to be executed successfully without any downtime to the user experience. 
+
+# Project Planning
+
+For this project, I used Jira software to help me plan out the various tasks that I would be required to do. I chose this software because I was familar with it and it allowed me to work in a KanBan style within sprints and also divide tasks into smaller subtasks. I created epics for the larger chunks of work that I needed to do, and then spent some time thinking about the different tasks that were required in order to achieve my deliverables. Where relevant, I wrote user stories and linked them to the tasks that were required to fulfil them (see example below) Each task or sub task was assigned a story point value so that I could split the work evenly across the sprints and ensure that they could all be completed in the allocated timeframe. This produced a roadmap as shown below.
+
+INSERT ROADMAP PIC AND USER STORY PIC
+
+
+
+
+
+# Risk Assessment
+# App Design
+# CI Pipeline
+# Known Issues
+# Future Work 
