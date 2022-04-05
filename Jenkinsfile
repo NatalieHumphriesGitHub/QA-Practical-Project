@@ -19,7 +19,7 @@ pipeline {
         }
         stage('Deploy to Swarm') {
             steps {
-                sh "echo '    driver:overlay' >> docker-compose.yaml"
+                sh "echo '    driver: overlay' >> docker-compose.yaml"
                 sh "scp ./docker-compose.yaml jenkins@swarm-manager:/home/jenkins/docker-compose.yaml"
                 sh "scp ./nginx/nginx.conf jenkins@swarm-manager:/home/jenkins/nginx.conf"
                 sh "ssh jenkins@swarm-manager < deploy.sh"
