@@ -53,8 +53,8 @@ services:
     environment:
       MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
       MYSQL_DATABASE: games_db
-networks:
-  games-net:
 volumes:
   games-vol:
+networks:
+  games-net:
     #driver: overlay
