@@ -9,4 +9,4 @@ class Games(db.Model):
     away_team_score = db.Column(db.Integer)
     date_run = db.Column(db.DateTime)
     def __str__(self):
-        return f"{home_team} - {home_team_score} : {away_team_score} - {away_team} ({date_run})"
+        return f"{self.home_team} - {self.home_team_score} : {self.away_team_score} - {self.away_team} ({self.date_run})"

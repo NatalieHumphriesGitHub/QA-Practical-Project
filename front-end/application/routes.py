@@ -16,9 +16,9 @@ def index():
     if home_team_score == away_team_score:
         result = "The game was a draw!"
     elif home_team_score > away_team_score:
-        result = f"{home_team} is the winner!"
+        result = f"{home_team['home_team']} is the winner!"
     else:
-        result = f"{away_team} is the winner!"    
+        result = f"{away_team['away_team']} is the winner!"    
     db.session.add(Games(home_team=home_team["home_team"], away_team=away_team["away_team"], home_team_score=home_team_score, away_team_score=away_team_score, date_run=datetime.now()))
     db.session.commit()
     games = Games.query.all()
