@@ -124,7 +124,7 @@ As mentioned above, the dev VM had to be deleted and recreated a number of times
 
 The Ansible playbook also configured the github repository onto the dev VM so that the repository was ready to be worked on as soon as the dev VM was available. As mentioned, git was used for the VSC and all source code and documentation was stored on GitHub. The feature branch model was used - this means that a new branch was created for each piece of functionality and merged into the dev branch once it was completed. The dev branch was pulled into the main branch once the application was finished. A Jenkins web-hook was set up so that any pushes or closed pull requests would trigger a build. In order to do the rolling update, version 2 of the application was created on a feature branch, pushed into dev and then pushed into main for the demonstration. 
 
-INSERT screenshot of network graph
+![network graph](https://github.com/NatalieHumphriesGitHub/QA-Practical-Project/blob/3c0f8476c5d5912470961bece897690d9e23d05f/images/network%20graph.png)
 
 The application was written in Python using Flask APIs. Postman was used to test the success of the http requests before the front-end code was written and pytest was utilised to run tests and produce a test coverage report. 
 
