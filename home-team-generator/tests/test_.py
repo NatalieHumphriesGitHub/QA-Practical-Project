@@ -12,8 +12,8 @@ class TestBase(TestCase):
 
 class TestView(TestBase):
 
-    @patch('application.routes.choice', return_value = 'Newcastle')
+    @patch('application.routes.choice', return_value = 'Rangers')
     def test_get_home_team(self, mock_function):
         response = self.client.get(url_for('get_home_team'))
         self.assert200(response)
-        self.assertIn(b'Newcastle', response.data)
+        self.assertIn(b'Rangers', response.data)
