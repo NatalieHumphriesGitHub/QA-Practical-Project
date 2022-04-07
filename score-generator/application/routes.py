@@ -2,7 +2,7 @@ from application import app
 from flask import request, jsonify
 from random import randint
 
-team_factors = {"Man City" : 2, "Liverpool" : 2, "Chelsea" : 2, "Arsenal" : 2, "Tottenham" : 2, "Man Utd" : 2, "West Ham" : 1, "Wolves" : 1, "Aston Villa" : 1, "Leicester City" : 1, "Southampton" : 1, "Crystal Palace" : 1, "Brighton" : 1, "Newcastle" : 1, "Brentford" : 0.5, "Leeds Utd" : 0.5, "Everton" : 0.5, "Watford" : 0.5, "Burnley" : 0.5, "Norwich" : 0.5}
+team_factors = {"Celtic" : 2, "Rangers" : 2, "Hearts" : 2, "Dundee United" : 2, "Motherwell" : 1, "Hibernian" : 1, "Ross County" : 1, "Livingston" : 1, "Aberdeen" : 0.5, "St.Mirren" : 0.5, "St Johnstone" : 0.5, "Dundee" : 0.5}
 
 @app.route('/team-scores', methods=['POST'])
 def team_scores():
