@@ -207,8 +207,8 @@ Once this was corrected, build 8 was successful however the application had not 
 
 # Known Issues
 
-Currently the previous results are ordered by most recent last, it would be preferable to have them ordered most recent first. 
+Currently the previous results are ordered by most recent last, it would be preferable to have them ordered most recent first. The timestamp is also 1 hour behind BST.
 
 # Future Work 
 
-As well as fixing the above issue, in the future I would like to add the option to choose which teams are playing each other as this could allow the score generator to predict games that are actually happening. I would also like to have the database of previous results appear on a different page so that the home screen does not look so cluttered. 
+As well as fixing the above issues, in the future I would like to add the option to choose which teams are playing each other as this could allow the score generator to predict games that are actually happening. I would also like to have the database of previous results appear on a different page so that the home screen does not look so cluttered. 
