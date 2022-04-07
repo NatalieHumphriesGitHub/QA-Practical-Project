@@ -153,5 +153,20 @@ The Ansible playbook initialised the Docker-Swarm orchestration tool joining the
 
 As the load balancer configuration was a simple one, the nginx VM was configured with an nginx_lb.conf file to connect it to the docker-manager and docker-worker and the docker build command was run manually.
 
+# Jenkins
+
+As discussed above, each time a push or a pull request was made to GitHub, an automated build was triggered in Jenkins. Below is the output that Jenkins shows for each stage of a successful build - each stage produces logs so that if the stage fails it is easier to identify what has caused it. 
+
+INSERT JENKINS STAGE
+
+The average full run time was ~1min 27s, with the majority of the time spend on the build and push stage where the images of the services were created and pushed to DockerHub. The build time trend is shown here - if a build fails at any stage, the next stages are skipped which means failed builds usually take less time than successful ones. 
+
+INSERT BUILD TIME
+
+The reason for the failed builds at the beginning were due to a host key verification failure - the solution to this was to manually SSH into the swarm-manager VM from the jenkins VM to manually accept the "do you want to continue connecting" prompt. Another failed build with the error "network.games-net" was the result of a missing whitespace in the Jenkinsfile although the logs seemed to point to an error in the Docker-Compose file. This is because the Jenkinsfile was making an update to the Docker-Compose file when it was running the deploy stage, so it actually was an error in the Docker-Compose file but originating from the Jenkinsfile. 
+
+Once this was corrected, build 8 was successful however the application had not deployed correctly. This can be seen as a drawback of the Jenkins pipeline as it had indicated the build as a success because all of its tasks had been successfully completed, however it does not assess the success of the containers that were running. The issue was that the nginx container was not running properly as there was an issue with the source file path. Builds 9 and 10 were tests to try and fix the source path configuration, so build 11 was the first actually successful build.   
+
+
 # Known Issues
 # Future Work 
